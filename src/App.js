@@ -1,26 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+import Selection from './components/Selection';
+import CardList from './components/CardList';
+
+class App extends Component {
+  constructor(){
+    super();
+    this.state = {
+      search: '',
+      people: '',
+    };
+  }
+
+  onClickSearch = (event) => {
+    this.setState({search: event.target.value}, function() {
+      this.get();
+    });
+  }
+
+  async get() {
+    console.log(`https://swapi.co/api/${this.state.search}`);
+    const response = await fetch(`https://swapi.co/api/${this.state.search}`);
+    const data = await response.json();
+    this.setState({people: data});
+    console.log(data);
+  } 
+
+  render(){
+
+   return ( 
+   
+    <div>
+      <Selection click={this.onClickSearch}/>
+      {
+        this.state.people === '' ? <div></div> : <CardList data={this.state.people} />
+      }
     </div>
-  );
+   );
+  }
 }
 
 export default App;
