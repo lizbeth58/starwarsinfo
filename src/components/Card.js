@@ -2,14 +2,51 @@ import React from 'react';
 
 const Card = (props) => {
 
+    const cardSel = (sel) => {
+        console.log(sel);
+        switch (sel) {
+            case 'people/':
+                return(
+                    <div>
+                        <h1>{props.name}</h1>
+                        <h3>{props.bday}</h3>
+                        <h3>{props.gender}</h3>
+                    </div>
+                );
+            case 'planets/':
+                return(
+                    <div>
+                        <h1>{props.name}</h1>
+                        <h3>{props.diameter}</h3>
+                        <h3>{props.population}</h3>
+                    </div>
+                );
+            case 'spaceships/':
+                return(
+                    <div>
+                        <h1>{props.name}</h1>
+                        <h3>{props.diameter}</h3>
+                        <h3>{props.population}</h3>
+                    </div>
+                );
+            case 'vehicles/':
+                return(
+                    <div>
+                        <h1>{props.name}</h1>
+                        <h3>{props.diameter}</h3>
+                        <h3>{props.population}</h3>
+                    </div>
+                );
+            default:
+                break;
+        }
+    }
+
     return (
-        <div>
-            <h1>{props.name}</h1>
-            <h1>{props.bday}</h1>
-            <h1>{props.eyecolor}</h1>
-            <h1>{props.gender}</h1>
-            <h1>{props.haircolor}</h1>
-            <h1>{props.height}</h1>
+        <div className="tc bg-yellow dib br3 pa3 ma2 grow bw2 shadow-5">
+            {
+                cardSel(props.card)
+            }
         </div>
     )
 }
