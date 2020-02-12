@@ -21,20 +21,20 @@ const Card = (props) => {
                         <h3>{props.population}</h3>
                     </div>
                 );
-            case 'spaceships/':
+            case 'starships/':
                 return(
                     <div>
                         <h1>{props.name}</h1>
-                        <h3>{props.diameter}</h3>
-                        <h3>{props.population}</h3>
+                        <h3>{props.model}</h3>
+                        <h3>{props.hyperdrive_rating}</h3>
                     </div>
                 );
             case 'vehicles/':
                 return(
                     <div>
                         <h1>{props.name}</h1>
-                        <h3>{props.diameter}</h3>
-                        <h3>{props.population}</h3>
+                        <h3>{props.model}</h3>
+                        <h3>{props.manufacturer}</h3>
                     </div>
                 );
             default:

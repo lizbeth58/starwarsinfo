@@ -11,7 +11,7 @@ class App extends Component {
       search: '',
       people: '',
       planets: '',
-      spaceships: '',
+      starships: '',
       vehicles: '',
     };
   }
@@ -34,8 +34,8 @@ class App extends Component {
         return this.state.people;
       case 'planets/':
         return this.state.planets;
-      case 'spaceshps/':
-        return this.state.spaceships;
+      case 'starships/':
+        return this.state.starships;
       case 'vehicles/':
         return this.state.vehicles;
       default:
@@ -52,8 +52,8 @@ class App extends Component {
       case 'planets/':
         this.setState({planets: data});
         break;
-      case 'spaceshps/':
-        this.setState({spaceships: data});
+      case 'starships/':
+        this.setState({starships: data});
         break;
       case 'vehicles/':
         this.setState({vehicles: data});
@@ -84,7 +84,8 @@ class App extends Component {
 
    return ( 
    
-    <div>
+    <div className='tc'>
+      <h1 className='f1 yellow'>Star Wars info</h1>
       <Selection click={this.onClickSearch}/>
       {
         this.listChooser()

@@ -34,28 +34,30 @@ const CardList = (props) => {
                         );
                     } )
                 );
-            case 'spaceships/':
+            case 'starships/':
                 return(
-                    props.data.results.map( ( character,i) => {
+                    props.data.results.map( (starship,i) => {
                         return(
                             <Card
                             key={i}
-                            name={character.name}
-                            bday={character.bday}
-                            gender={character.gender}
+                            card={choice}
+                            name={starship.name}
+                            model={starship.model}
+                            hyperdrive_rating={starship.hyperdrive_rating}
                              />
                         );
                     } )
                 );
             case 'vehicles/':
                 return(
-                    props.data.results.map( ( character,i) => {
+                    props.data.results.map( ( vehicle,i) => {
                         return(
                             <Card
                             key={i}
-                            name={character.name}
-                            bday={character.bday}
-                            gender={character.gender}
+                            card={choice}
+                            name={vehicle.name}
+                            model={vehicle.model}
+                            manufacturer={vehicle.manufacturer}
                              />
                         );
                     } )
